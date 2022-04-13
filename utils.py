@@ -38,3 +38,19 @@ def reduce_memory_usage(df, verbose=True):
             )
         )
     return df
+
+
+def get_dataset_dtypes():
+    import json
+
+    dtypes = {}
+    # Opening JSON file
+    with open('dtypes.json') as f:
+        # returns JSON object as a dictionary
+        dtypes = json.load(f)
+    
+    numerics = ['int8', 'int16', 'int32', 'int64', 'float16', 'float32', 'float64']
+    numerical_columns = [c for c,v in dtypes.items() if v in numerics]
+    categorical_columns = [c for c,v in dtypes.items() if v not in numerics]
+
+    return dtypes, numerical_columns, categorical_columns
