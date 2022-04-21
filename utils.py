@@ -63,9 +63,5 @@ def derivate_features(df):
     df['Census_OSVersion_1'] = df['Census_OSVersion'].apply(lambda x: x.split('.')[1]).astype('category')
     df['Census_OSVersion_2'] = df['Census_OSVersion'].apply(lambda x: x.split('.')[2]).astype('category')
     df['Census_OSVersion_3'] = df['Census_OSVersion'].apply(lambda x: x.split('.')[3]).astype('category')
-
-    df['PrimaryDriveRatio'] = df['Census_SystemVolumeTotalCapacity']/ df['Census_PrimaryDiskTotalCapacity']
-    df['NonPrimaryDriveMB'] = df['Census_PrimaryDiskTotalCapacity'] - df['Census_SystemVolumeTotalCapacity']
-    df['RAM_Per_Processor'] = df['Census_TotalPhysicalRAM']/ df['Census_ProcessorCoreCount']
     
     return df
