@@ -63,26 +63,23 @@ def derivate_features(df):
     df['Census_OSVersion_1'] = df['Census_OSVersion'].apply(lambda x: x.split('.')[1]).astype('category')
     df['Census_OSVersion_2'] = df['Census_OSVersion'].apply(lambda x: x.split('.')[2]).astype('category')
     df['Census_OSVersion_3'] = df['Census_OSVersion'].apply(lambda x: x.split('.')[3]).astype('category')
-<<<<<<< HEAD
 
     df['PrimaryDriveRatio'] = df['Census_SystemVolumeTotalCapacity'] / df['Census_PrimaryDiskTotalCapacity']
     df['NonPrimaryDriveMB'] = df['Census_PrimaryDiskTotalCapacity'] - df['Census_SystemVolumeTotalCapacity']
     df['RAM_Per_Processor'] = df['Census_TotalPhysicalRAM']/ df['Census_ProcessorCoreCount']
-=======
->>>>>>> 007e3de139cd5d7defc76f1804dbd54789284a75
     
     return df
 
 
 def get_roc_curves(y, y_pred):
-    y_ = label_binarize(y, classes=[0, 1, 2, 3])
-    pred = label_binarize(y_pred, classes=[0,1,2,3])
+    y_ = label_binarize(y, classes=[0, 1])
+    pred = label_binarize(y_pred, classes=[0,1])
     
     # Compute ROC curve and ROC area for each class
     fpr = dict()
     tpr = dict()
     roc_auc = dict()
-    n_classes=4
+    n_classes=1
     for i in range(n_classes):
         fpr[i], tpr[i], _ = roc_curve(y_[:, i], pred[:, i])
         roc_auc[i] = auc(fpr[i], tpr[i])
