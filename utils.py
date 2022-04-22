@@ -1,4 +1,7 @@
 import numpy as np
+from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score, plot_confusion_matrix, accuracy_score, roc_auc_score, roc_curve, auc
+import matplotlib.pyplot as plt
+from sklearn import model_selection
 
 def reduce_memory_usage(df, verbose=True):
     numerics = ['int16', 'int32', 'int64', 'float16', 'float32', 'float64']
