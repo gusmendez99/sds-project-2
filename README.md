@@ -22,7 +22,7 @@ You must download preprocessed train & test datasets from this [Drive Folder](ht
 
 ## Documentation
 
-WIP
+You can see our findings on this dataset in [this PDF](./docs/Project%202%20-%20SDS.pdf)
 
 ## Authors
 
